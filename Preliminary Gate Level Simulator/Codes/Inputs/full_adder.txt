@@ -1,0 +1,18 @@
+module full_adder (a, b, ci, y, co);
+input a;
+input b;
+input ci;
+output y;
+output co;
+
+wire xab;
+wire ab;
+wire xabci;
+
+xor # (4) U1 (y, xab, ci);
+and # (4) U2 (ab, a, b);
+and # (4) U3 (xabci, xab, ci);
+xor # (4) U4 (xab, a, b);
+or # (4) U5 (co, ab, xabci);
+
+endmodule

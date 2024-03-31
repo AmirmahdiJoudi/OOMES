@@ -1,0 +1,16 @@
+module mux (a, b, s, y);
+input a;
+input b;
+input s;
+output y;
+
+wire sbar;
+wire aa;
+wire bb;
+
+nand # (5) U1 (sbar, s, s);
+nand # (4) U2 (aa, a, sbar);
+nand # (4) U3 (bb, b, s);
+nand # (3) U4 (y, aa, bb);
+
+endmodule
